@@ -10,7 +10,7 @@
 		</Grid.RowDefinitions>
 		<Menu>
 		<MenuItem x:Name="miCargar" Header="Cargar" Click="MiCargar_Click"/>
-		<MenuItem x:Name="miSobre" Header="Sobre" Click="MiSobre_Click"
+		<MenuItem x:Name="miSobre" Header="Sobre" Click="MiSobre_Click"/>
 		</Menu>
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>

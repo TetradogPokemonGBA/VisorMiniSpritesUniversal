@@ -140,7 +140,7 @@ namespace MinisPaletaDiscover
 		void MiSobre_Click(object sender, RoutedEventArgs e)
 		{
 		if(MessageBox.Show("Autor:pikachu240\nLicencia:GNU GPL V3\nHecho para Sangus103\n¿Quieres ver el código fuente?","Sobre la app",MessageBoxButton.YesNo,MessageBoxImage.Information)==MessageBoxResult.Yes)
-			System.Diagnostics.Process.Start("");
+			System.Diagnostics.Process.Start("https://github.com/TetradogPokemonGBA/VisorMiniSpritesUniversal");
 		}
 	}
 }
