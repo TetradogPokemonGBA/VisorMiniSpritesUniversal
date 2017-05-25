@@ -86,6 +86,7 @@ namespace MinisPaletaDiscover
 			ctPaleta.ColorPicker.Imagen1=Bmp1;
 			ctPaleta.ColorPicker.Imagen2=Bmp2;
 			ctPaleta.ColorPicker.Imagen3=Bmp3;
+	
 			ctPaleta.ColorChanged+=CambiarPaletaMinis;
 			ctPaleta.MouseLeftButtonUp+=PonPaletaATodos;
 			ctPaleta.Tag=paleta;
