@@ -54,10 +54,10 @@ namespace MinisPaletaDiscover
 			item.Header="Restaurar Paleta";
 			item.Click+=RestaurarPaleta;
 			menu.Items.Add(item);
-			ContextMenu=menu;
+			
 			
 			InitializeComponent();
-			
+			ContextMenu=menu;
 			ctPaleta.ColorPicker.Imagen1=Window1.Bmp1;
 			ctPaleta.ColorPicker.Imagen2=Window1.Bmp2;
 			ctPaleta.ColorPicker.Imagen3=Window1.Bmp3;
@@ -82,6 +82,8 @@ namespace MinisPaletaDiscover
 			{
 				Background=Brushes.LightBlue;
 			
+			}else{
+				Background=Brushes.White;
 			}
 			isLight=!isLight;
 		}
