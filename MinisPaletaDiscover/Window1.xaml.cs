@@ -40,7 +40,7 @@ namespace MinisPaletaDiscover
 		}
 		public Window1()
 		{
-	
+			
 			InitializeComponent();
 			CargarRom();
 		}
@@ -51,16 +51,22 @@ namespace MinisPaletaDiscover
 			RomGba rom;
 			EdicionPokemon edicion;
 			Compilacion compilacion;
+			DateTime inicio=new DateTime();
 			opn.Filter="PokemonGBA|*.gba";
 			if(opn.ShowDialog().GetValueOrDefault())
 			{
 				Title="Cargando";
 				rom=new RomGba(opn.FileName);
+				
 				edicion=EdicionPokemon.GetEdicionPokemon(rom);
 				compilacion=Compilacion.GetCompilacion(rom,edicion);
+				if(System.Diagnostics.Debugger.IsAttached)
+					inicio=DateTime.Now;
 				paletas=PaletasMinis.GetPaletasMinis(rom,edicion,compilacion);
-				minis=MiniSprite.GetMiniSprites(rom,edicion,compilacion,paletas);
 				
+				minis=MiniSprite.GetMiniSprites(rom,edicion,compilacion,paletas);
+				if(System.Diagnostics.Debugger.IsAttached)
+					MessageBox.Show((DateTime.Now-inicio).TotalSeconds+"");
 				stkMinis.Children.Clear();
 				stkPaletas.Children.Clear();
 				
@@ -86,7 +92,7 @@ namespace MinisPaletaDiscover
 			ctPaleta.ColorPicker.Imagen1=Bmp1;
 			ctPaleta.ColorPicker.Imagen2=Bmp2;
 			ctPaleta.ColorPicker.Imagen3=Bmp3;
-	
+			
 			ctPaleta.ColorChanged+=CambiarPaletaMinis;
 			ctPaleta.MouseLeftButtonUp+=PonPaletaATodos;
 			ctPaleta.Tag=paleta;
@@ -140,8 +146,8 @@ namespace MinisPaletaDiscover
 		}
 		void MiSobre_Click(object sender, RoutedEventArgs e)
 		{
-		if(MessageBox.Show("Autor:pikachu240\nLicencia:GNU GPL V3\nHecho para Sangus103\n¿Quieres ver el código fuente?","Sobre la app",MessageBoxButton.YesNo,MessageBoxImage.Information)==MessageBoxResult.Yes)
-			System.Diagnostics.Process.Start("https://github.com/TetradogPokemonGBA/VisorMiniSpritesUniversal");
+			if(MessageBox.Show("Autor:pikachu240\nLicencia:GNU GPL V3\nHecho para Sangus103\n¿Quieres ver el código fuente?","Sobre la app",MessageBoxButton.YesNo,MessageBoxImage.Information)==MessageBoxResult.Yes)
+				System.Diagnostics.Process.Start("https://github.com/TetradogPokemonGBA/VisorMiniSpritesUniversal");
 		}
 	}
 }

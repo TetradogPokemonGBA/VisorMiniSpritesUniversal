@@ -56,6 +56,7 @@ namespace MinisPaletaDiscover
 			menu.Items.Add(item);
 			
 			
+			
 			InitializeComponent();
 			ContextMenu=menu;
 			ctPaleta.ColorPicker.Imagen1=Window1.Bmp1;
@@ -72,6 +73,13 @@ namespace MinisPaletaDiscover
 				item.Click+=GuardarMini;
 				item.Tag=imgMini;
 				menu.Items.Add(item);
+				
+				item=new MenuItem();
+				item.Header="Copy offset";
+				item.Click+=(s,e)=>CopiarOffset(s as MenuItem);
+				item.Tag=i;
+				menu.Items.Add(item);
+				
 				imgMini.ContextMenu=menu;
 				imgMini.SetImage(mini.Minis[i].GetBitmap(mini.Paleta));
 				ugMinis.Children.Add(imgMini);
@@ -81,13 +89,17 @@ namespace MinisPaletaDiscover
 			if(!isLight)
 			{
 				Background=Brushes.LightBlue;
-			
+				
 			}else{
 				Background=Brushes.White;
 			}
 			isLight=!isLight;
 		}
 
+		void CopiarOffset(MenuItem miMini)
+		{
+			Clipboard.SetText((Hex)mini.Minis[(int)miMini.Tag].Offset);
+		}
 		void GuardarMini(object sender, RoutedEventArgs e)
 		{
 			Image img=(sender as MenuItem).Tag as Image;
@@ -138,7 +150,7 @@ namespace MinisPaletaDiscover
 				}
 				finally{
 					br.Close();
-			
+					
 				}
 				CambioPaletaMinis();
 			}
@@ -156,7 +168,7 @@ namespace MinisPaletaDiscover
 				for(int i=0;i<ctPaleta.Colors.Length;i++)
 					bw.Write(Serializar.GetBytes(ctPaleta.Colors[i]));
 				bw.Close();
-			
+				
 				
 			}
 		}
