@@ -34,9 +34,9 @@ namespace MinisPaletaDiscover
 		{
 			ColorTable ct=new ColorTable();
 			
-			Bmp1=Paleta.ToGBAColor(ct.ColorPicker.Imagen1);
-			Bmp2=Paleta.ToGBAColor(ct.ColorPicker.Imagen2);
-			Bmp3=Paleta.ToGBAColor(ct.ColorPicker.Imagen3);
+			Bmp1=ct.ColorPicker.Imagen1.ToGbaBitmap();
+			Bmp2=ct.ColorPicker.Imagen2.ToGbaBitmap();
+			Bmp3=ct.ColorPicker.Imagen3.ToGbaBitmap();
 		}
 		public Window1()
 		{

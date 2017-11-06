@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MinisPaletaDiscover</RootNamespace>
     <AssemblyName>MinisPaletaDiscover</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -40,6 +41,9 @@
     </Reference>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PokemonGBAFrameWork">
+      <HintPath>..\..\..\..\Desktop\Mis Programas\PokemonGBAFrameWork\PokemonGBAFrameWork\bin\Release\PokemonGBAFrameWork.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -92,12 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\Mis Programas\PokemonGBAFrameWork\PokemonGBAFrameWork\PokemonGBAFrameWork.csproj">
-      <Project>{52cf96db-a3aa-47d9-b0ba-7bb2834b68c7}</Project>
-      <Name>PokemonGBAFrameWork</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
