@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="MinisPaletaDiscover2.MiniViwer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MinisPaletaDiscover2"
+              xmlns:wpf="clr-namespace:Gabriel.Cat.Wpf;assembly=Gabriel.Cat.S.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="150"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="10" MaxHeight="150" VerticalAlignment="Center">
+            <wpf:ColorTable x:Name="ctPaleta" ColorChanged="CtPaleta_ColorChanged"/>
+        </Border>
+
+        <UniformGrid x:Name="ugMinis"  Columns="4" Grid.Column="1"/>
+
+    </Grid>
+</UserControl>
